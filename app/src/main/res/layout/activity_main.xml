@@ -19,8 +19,8 @@
 
         <TextView
             android:id="@+id/mainTexColor"
-            android:text="Default Color: #000000"
-            android:textColor="#000000"
+            android:text="Default Color: #FFFF0000"
+            android:textColor="#FFFF0000"
             android:textSize="20sp"
             android:gravity="center_vertical"
             android:layout_width="wrap_content"

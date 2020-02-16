@@ -2,6 +2,6 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:drawable="@drawable/pre_color_bg"></item>
-    <item android:drawable="@drawable/stroke"></item>
+    <item android:drawable="@drawable/pre_color_stroke"></item>
 
 </layer-list>

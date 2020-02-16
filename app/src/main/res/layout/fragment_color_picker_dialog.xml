@@ -17,73 +17,86 @@
         <View
             android:id="@+id/preColorView"
             android:background="@drawable/pre_color"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
             android:layout_width="70dp"
-            android:layout_height="50dp"/>
+            android:layout_height="40dp"/>
 
         <View
             android:id="@+id/selectedColorView"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/selected_color"
-            android:layout_marginLeft="5dp"
             android:layout_width="70dp"
-            android:layout_height="50dp"/>
+            android:layout_height="40dp"/>
     </LinearLayout>
 
     <com.scurab.android.colorpicker.GradientView
         android:id="@+id/gradientPicker"
-        app:radius="5dp"
+        app:radius="0dp"
         app:pointerDrawable="@drawable/pointer"
-        app:lockPointerInBounds="true"
-        android:background="@drawable/gradient_background"
+        app:lockPointerInBounds="false"
+        android:background="@drawable/gradient_view_background"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:padding="0.5dp"
+        android:padding="15dp"
         android:layout_width="match_parent"
         android:layout_height="300dp"/>
 
     <com.scurab.android.colorpicker.GradientView
         android:id="@+id/brightnessPicker"
-        android:background="@drawable/gradient_background"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:background="@drawable/brightness_view_background"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
         android:padding="0.5dp"
         app:lockPointerInBounds="true"
-        app:radius="5dp"
+        app:radius="15dp"
         app:pointerDrawable="@drawable/pointer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <LinearLayout
-        android:layout_gravity="end"
-        android:orientation="horizontal"
-        android:layout_marginRight="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <android.support.constraint.ConstraintLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
 
         <Button
             android:id="@+id/btnCancel"
-            android:text="Cancel"
-            android:textAllCaps="false"
-            android:background="@null"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="Cancel"
+            android:textColor="#FF9800"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0.5dp"
+            android:layout_height="wrap_content"
+            android:background="#B3B3B3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnDone"
-            android:text="Done"
-            android:background="@null"
-            android:textAllCaps="false"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="Done"
+            android:textColor="#FF9800"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/line"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>

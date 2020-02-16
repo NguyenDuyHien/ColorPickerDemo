@@ -1,8 +1,6 @@
 package com.scurab.android.colorpicker;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -10,12 +8,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements ColorPickerDialogFragment.OnColorSelectListener {
 
-    private GradientView mTop;
-    private GradientView mBottom;
     private TextView mainTextColor;
-    private Drawable mIcon;
     private ColorPickerDialogFragment colorPickerDialogFragment;
-    private FragmentManager fm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +26,7 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
 
     private void showDialog() {
         colorPickerDialogFragment = ColorPickerDialogFragment.newInstance(mainTextColor.getCurrentTextColor());
-        fm = getSupportFragmentManager();
-        colorPickerDialogFragment.show(fm, " ");
+        colorPickerDialogFragment.show(getSupportFragmentManager(), " ");
     }
 
     @Override

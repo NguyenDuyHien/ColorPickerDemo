@@ -3,11 +3,16 @@ package com.scurab.android.colorpicker
 import android.content.Context
 import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import kotlinx.android.synthetic.main.fragment_color_picker_dialog.*
+
+
+
+
 
 private const val PRE_COLOR = "preColor"
 
@@ -57,12 +62,32 @@ class ColorPickerDialogFragment : DialogFragment() {
         this.dismiss()
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
-        dialog.window?.let {
+        dialog?.window?.let {
             it.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            it.setDimAmount(0.5f)
+            it.setGravity(Gravity.BOTTOM)
+            it.attributes.windowAnimations = R.style.DialogAnimation
+            it.setBackgroundDrawableResource(R.drawable.dialog_rounded_bg)
         }
+
+//        val param = content.layoutParams as CoordinatorLayout.LayoutParams
+//        val behavior = SwipeDismissBehavior<View>()
+//        behavior.setSwipeDirection(SwipeDismissBehavior.SWIPE_DIRECTION_ANY)
+//
+//        behavior.setListener(object : SwipeDismissBehavior.OnDismissListener {
+//
+//            override fun onDismiss(view: View) {
+//                dialog!!.dismiss()
+//            }
+//
+//            override fun onDragStateChanged(i: Int) {}
+//
+//        })
+//
+//        param.behavior = behavior
     }
 
     private fun onClickDone() {

@@ -10,10 +10,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import kotlinx.android.synthetic.main.fragment_color_picker_dialog.*
 
-
-
-
-
 private const val PRE_COLOR = "preColor"
 
 class ColorPickerDialogFragment : DialogFragment() {
@@ -65,29 +61,22 @@ class ColorPickerDialogFragment : DialogFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        dialog?.window?.let {
-            it.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-            it.setDimAmount(0.5f)
-            it.setGravity(Gravity.BOTTOM)
-            it.attributes.windowAnimations = R.style.DialogAnimation
-            it.setBackgroundDrawableResource(R.drawable.dialog_rounded_bg)
+        dialog?.window?.apply {
+            if (resources.getBoolean(R.bool.isTablet)) {
+                setLayout(dpToPx(450), ViewGroup.LayoutParams.WRAP_CONTENT)
+                setGravity(Gravity.BOTTOM)
+            } else {
+                setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                setGravity(Gravity.CENTER)
+            }
+            setDimAmount(0.5f)
+            attributes.windowAnimations = R.style.DialogAnimation
+            setBackgroundDrawableResource(R.drawable.dialog_rounded_bg)
         }
+    }
 
-//        val param = content.layoutParams as CoordinatorLayout.LayoutParams
-//        val behavior = SwipeDismissBehavior<View>()
-//        behavior.setSwipeDirection(SwipeDismissBehavior.SWIPE_DIRECTION_ANY)
-//
-//        behavior.setListener(object : SwipeDismissBehavior.OnDismissListener {
-//
-//            override fun onDismiss(view: View) {
-//                dialog!!.dismiss()
-//            }
-//
-//            override fun onDragStateChanged(i: Int) {}
-//
-//        })
-//
-//        param.behavior = behavior
+    fun dpToPx(dp: Int): Int {
+        return (dp * resources.displayMetrics.density).toInt()
     }
 
     private fun onClickDone() {

@@ -11,6 +11,7 @@
         tools:context=".MainActivity">
 
         <Button
+            android:id="@+id/btnShow"
             android:onClick="onClickShowDialog"
             android:text="Show Color Picker"
             android:layout_width="wrap_content"
